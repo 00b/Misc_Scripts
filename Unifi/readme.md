@@ -15,7 +15,8 @@ It will still work but you will have to enter the root password of the router a 
 If you already have your ssh key pairs use ssh-copy-id to get it on your router.   
 
 ex: `ssh-copy-id -i /home/bob/.ssh/id_rsa.pub root@192.168.1.1`
-sshkey may not survive a firmware update or a reboot of the unifi router. 
+sshkey may not likely to survive a router firmware update, appears to survie a reboot. 
+The added IP will not persist after a reboot. 
 
 Tested on Unif OS 3.2.12  
 
