@@ -22,3 +22,11 @@ The added IP will not persist after a reboot.
 Tested on Unif OS 3.2.12  
 
 ## Warning: the script has no error checking or state checking. Also it is ugly.
+
+# SuperEasierMode.sh
+
+Same function/purpose as SuperEasyMode.sh but better. 
+
+Checks for existance of the new IP, if not found it adds it, then verifies if it was added. 
+
+
