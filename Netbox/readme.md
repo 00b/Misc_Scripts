@@ -9,4 +9,4 @@ to use it:
 3. run it `sudo ./netbox-upgrader.sh <X.X.X>`
 
 
-If you are making a major leap you may need to do an upgrade to an intermediate version or two due to various schemea and other changes. Read release notes to figure out of that is necessary first. 
+If you are making a large enough version leap you may need to do an upgrade to an intermediate version or two due to various schemea and other changes. Read release notes to figure out of that is necessary first. 
