@@ -7,3 +7,6 @@ to use it:
 1. download it.
 2. make it executable. `chmod +x netbox-upgrader.sh`
 3. run it `sudo ./netbox-upgrader.sh <X.X.X>`
+
+
+If you are making a major leap you may need to do an upgrade to an intermediate version or two due to various schemea and other changes. Read release notes to figure out of that is necessary first. 
