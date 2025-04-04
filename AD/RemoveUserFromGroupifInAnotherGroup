@@ -1,18 +1,19 @@
-#If a user is in group1name and group2name remove user from group1. 
+#if users is in group1 and group2 remove from group1. 
 #change saftey to "Off" to make the changes. Otherwise it will only put who would be removed.  
 $saftey = "On"
 
-$group1Name = "MyGroup" #Users will be removed from this group if they are in the group2Name group. 
-$group2Name = "OtherGroup"
+$group1Name = "Group1" #users will be removed form this group if they are also in $group2Name
+$group2Name = "GroupB"
 
 $group1Members = Get-ADGroupMember -Identity $group1Name
 $Group1users = $group1Members | Select-Object -ExpandProperty SamAccountName
 $group2Members = Get-ADGroupMember -Identity $group2Name
 $Group2users = $group2Members | Select-Object -ExpandProperty SamAccountName
-
+$count=0
  foreach ($user in $Group1users) {
     #Write-Host "User: $user"
     if ($Group2users -contains $user) {
+        $count++
         if ($saftey -match "On") {
         Write-Host "$user would be removed from $group1name"
         }
@@ -26,4 +27,5 @@ $Group2users = $group2Members | Select-Object -ExpandProperty SamAccountName
             }
         }
     }
- } 
+ }
+ Write-Host "Matches: $count" 
