@@ -1,4 +1,4 @@
-#if users is in group1 and group2 remove from group1. 
+#Removes users that are in group1 if they are in group 2.  
 #change saftey to "Off" to make the changes. Otherwise it will only put who would be removed.  
 $saftey = "On"
 
