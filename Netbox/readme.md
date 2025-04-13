@@ -1,6 +1,6 @@
-Upgrading netbox kind of sucks. So I wrote a simple bash script to it for me. So far its saved me tens of minutes, not quite enough to cover the time to write the script but one or two more upgrades and I think it will be at the break even or net time savings point. 
+The netbox way of updating netbox is a bit painful for me. So I wrote a bash script to it for me. So far its saved me TENS of minutes, not quite enough to cover the time to write the script but one or two more upgrades and I think it will be at the break even or net time savings point. 
 
-Use at your own risk, not responsible for data loss or problems caused by it etc etc. Be sure to make a backup of your data. 
+Use at your own risk, not responsible for data loss or problems caused by it etc etc. Be sure to snapshot your VM and or make a backup of your database, configs, etc. 
 
 
 to use it:
