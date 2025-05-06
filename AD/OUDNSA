@@ -1,0 +1,16 @@
+#Get all DNS records A for an AD OU and the date it was last updated etc. 
+#Used to help identify old/broken DNS records in the AD enviroment (I don't manage it) 
+#that would otherwise likely be fixed by DNS scavenging which isn't on here.
+#Required DnsServer and ActiveDirectory modules. 
+
+$TargetOU = "OU=OUNAME,DC=domainname,DC=tld"
+$DNSServer = "<IP or FQDN of AD DNS server>"
+$Zone = "<forward DNS zone with the records>"
+
+#
+$Computers = Get-ADComputer -Filter 'Enabled -eq $True' -SearchBase $TargetOU -Properties Name, Modified
+
+foreach ($item in $Computers){
+    $dnsADCmptrName = $item.DNSHostName.ToString().Replace($Zone,"").TrimEnd(".");
+    Get-DnsServerResourceRecord -ComputerName $DNSServer  -zonename $Zone -rrtype "A" -Name $dnsADCmptrName
+    } 
