@@ -4,6 +4,8 @@
 
 #Writen 9/30/2024
 #Author Ben Clark
+#11/11/2025:
+#reset owner to user netbox on media, scripts, and reports. 
 
 #downloads the version entered when run. 
 #extracts to /opt/netbox-<version>
@@ -55,10 +57,17 @@ cp -pr /opt/netbox/netbox/media/ /opt/netbox-$1/netbox/
 #Copy scripts and reports
 cp -r /opt/netbox/netbox/scripts /opt/netbox-$1/netbox/
 cp -r /opt/netbox/netbox/reports /opt/netbox-$1/netbox/
+cp -r /opt/netbox/netbox/media/ /opt/netbox-$1/netbox/
+
 
 #Upgrade starts here
 #replace symbolic link to /opt/netbox with net version
 ln -sfn /opt/netbox-$1 /opt/netbox
+
+#Set scripts and reports owner back to netbox user.
+chown --recursive netbox /opt/netbox/netbox/media/
+chown --recursive netbox /opt/netbox/netbox/reports/
+chown --recursive netbox /opt/netbox/netbox/scripts/
 
 #run upgrade script
 cd /opt/netbox/
